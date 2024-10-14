@@ -14,5 +14,8 @@ urlpatterns = [
     path('mivista/', myapp.views.mi_vista, name='mi_vista'),
     
     # viiw prueba de backend
-    path('api/vista/', myapp.views.mi_vista_api, name='mi_vista_api')
+    path('api/vista/', myapp.views.mi_vista_api, name='mi_vista_api'),
+    
+    # Vista de la view con parametros en la URL
+    path('api/vista/<int:id>/<str:name>/', myapp.views.vista_parametros_url, name='vista_parametros_url'),
 ]

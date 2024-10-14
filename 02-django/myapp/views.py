@@ -24,3 +24,25 @@ def mi_vista_api(request):
 
     else:
         return JsonResponse({"error": "Método no permitido"}, status=405)
+    
+# View para practica con url com parametros
+@csrf_exempt
+def vista_parametros_url(request, id, name):
+    if request.method == 'GET':
+        return JsonResponse({
+            "message": "Esta es una solicitud GET",
+            "id": id,
+            "name": name
+        })
+
+    elif request.method == 'POST':
+        data = request.POST.get('data', 'No se envió data')
+        return JsonResponse({
+            "message": "Esta es una solicitud POST",
+            "id": id,
+            "name": name,
+            "data": data
+        })
+
+    else:
+        return JsonResponse({"error": "Método no permitido"}, status=405)
