@@ -18,4 +18,15 @@ urlpatterns = [
     
     # Vista de la view con parametros en la URL
     path('api/vista/<int:id>/<str:name>/', myapp.views.vista_parametros_url, name='vista_parametros_url'),
+    
+    # Vista de la viw con parametros opcionales
+    
+    # Sin parametros
+    path('api/vista/opcionales/', myapp.views.vista_parametros_opcionales, name='vista_parametros_opcionales'),
+    
+    # Con un id opcional
+    path('api/vista/opcionales/<int:id>/', myapp.views.vista_parametros_opcionales, name='vista_parametros_opcionales_id'),
+    
+    # Con id y name opcionales
+    path('api/vista/opcionales/<int:id>/<str:name>/', myapp.views.vista_parametros_opcionales, name='vista_parametros_opcionales_id_name')
 ]
