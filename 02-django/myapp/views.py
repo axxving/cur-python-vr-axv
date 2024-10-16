@@ -3,11 +3,11 @@ from django.http import HttpRequest, HttpResponse
 #  ?
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Inicio.")
+    return render(request, 'inicio.html')
 
 def mi_vista(request):
     return HttpResponse("Hola, esta es mi primera vista en django.")
@@ -73,3 +73,14 @@ def vista_parametros_opcionales(request, id=None, name=None):
     
     else:
         return JsonResponse({"error": "Método no permitido"}, status=405)
+    
+
+
+def index_view(request):
+    return render(request, 'index.html')
+
+def about_view(request):
+    return render(request, 'about.html')
+
+def contact_view(request):
+    return render(request, 'contact.html')

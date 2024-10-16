@@ -3,10 +3,7 @@ from django.urls import path
 # from myapp import views
 import myapp.views
 
-urlpatterns = [
-    # url principal
-    path('', myapp.views.index, name='index'),
-    
+urlpatterns = [    
     # url de inicio (usando una misma view)
     path('inicio', myapp.views.index, name='index'),
     
@@ -28,5 +25,15 @@ urlpatterns = [
     path('api/vista/opcionales/<int:id>/', myapp.views.vista_parametros_opcionales, name='vista_parametros_opcionales_id'),
     
     # Con id y name opcionales
-    path('api/vista/opcionales/<int:id>/<str:name>/', myapp.views.vista_parametros_opcionales, name='vista_parametros_opcionales_id_name')
+    path('api/vista/opcionales/<int:id>/<str:name>/', myapp.views.vista_parametros_opcionales, name='vista_parametros_opcionales_id_name'),
+    
+    # Vista de un template
+    path('', myapp.views.index, name='index'),
+    
+    path('home/', myapp.views.index_view, name='index'),
+     
+    path('about/', myapp.views.about_view, name='about'),
+    
+    path('contact/', myapp.views.contact_view, name='contact')
+
 ]
